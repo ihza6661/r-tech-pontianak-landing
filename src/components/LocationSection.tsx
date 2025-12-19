@@ -1,5 +1,6 @@
-import { Shield, Eye, Users, Clock, MapPin, Phone, Apple, Truck } from "lucide-react";
-import { COMPANY_INFO, WHATSAPP_NUMBER } from "@/lib/constants";
+import { Eye, Apple, Truck, Clock, MapPin, Phone } from "lucide-react";
+import { COMPANY_INFO, WHATSAPP_NUMBERS } from "@/lib/constants";
+import { formatWhatsAppNumber } from "@/lib/whatsapp";
 
 const trustPoints = [
   {
@@ -25,7 +26,9 @@ const trustPoints = [
 ];
 
 const LocationSection = () => {
-  const formattedPhone = WHATSAPP_NUMBER.replace(/(\d{2})(\d{3})(\d{4})(\d{4})/, '+$1 $2-$3-$4');
+  const formattedPhoneOwner = formatWhatsAppNumber(WHATSAPP_NUMBERS.owner);
+  const formattedPhoneSales = formatWhatsAppNumber(WHATSAPP_NUMBERS.sales);
+  const formattedPhoneService = formatWhatsAppNumber(WHATSAPP_NUMBERS.service);
 
   return (
     <section id="contact" className="py-20 bg-secondary/30 relative">
@@ -65,7 +68,7 @@ const LocationSection = () => {
           {/* Map */}
           <div className="glass-card rounded-2xl overflow-hidden h-[400px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.818!2d109.3445!3d-0.0467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sJln.%20Reformasi%20Untan%2C%20Pontianak!5e0!3m2!1sen!2sid!4v1234567890"
+              src={COMPANY_INFO.googleMapsEmbedUrl}
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -101,10 +104,18 @@ const LocationSection = () => {
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">WhatsApp</h4>
-                  <p className="text-muted-foreground">
-                    {formattedPhone}
-                  </p>
+                  <h4 className="font-semibold text-foreground mb-2">WhatsApp</h4>
+                  <div className="space-y-1">
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-medium text-foreground">Owner:</span> {formattedPhoneOwner}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-medium text-foreground">Jual-Beli:</span> {formattedPhoneSales}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-medium text-foreground">Service:</span> {formattedPhoneService}
+                    </p>
+                  </div>
                 </div>
               </div>
 

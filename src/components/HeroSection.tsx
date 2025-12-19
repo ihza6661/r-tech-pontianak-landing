@@ -2,6 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import rtechLogo from "@/assets/rtech-logo.jpg";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
+import { COMPANY_INFO } from "@/lib/constants";
 
 const HeroSection = () => {
   const whatsappLink = generateWhatsAppLink("general");
@@ -48,7 +49,7 @@ const HeroSection = () => {
           <div className="mb-8 animate-fade-in">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              Dipercaya Sejak 2014
+              Dipercaya Sejak {COMPANY_INFO.foundedYear}
             </span>
           </div>
 
@@ -81,7 +82,7 @@ const HeroSection = () => {
           {/* Trust indicators */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             {[
-              { value: "10+", label: "Tahun Pengalaman" },
+              { value: `${COMPANY_INFO.yearsInBusiness}+`, label: "Tahun Pengalaman" },
               { value: "5000+", label: "Unit Terjual" },
               { value: "4.9★", label: "Rating Google" },
               { value: "100%", label: "Garansi Resmi" },

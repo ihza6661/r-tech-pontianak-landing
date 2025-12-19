@@ -43,9 +43,9 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="py-20 bg-background relative">
-      {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]" />
+     <section className="py-20 bg-background relative">
+       {/* Background accent */}
+       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 md:w-[800px] h-64 md:h-[800px] bg-primary/5 rounded-full blur-[150px]" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}

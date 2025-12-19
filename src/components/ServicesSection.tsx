@@ -26,9 +26,9 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="py-20 bg-secondary/30 relative">
-      {/* Background accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+     <section className="py-20 bg-secondary/30 relative">
+       {/* Background accent */}
+       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 md:w-[600px] h-64 md:h-[600px] bg-primary/5 rounded-full blur-[150px]" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}

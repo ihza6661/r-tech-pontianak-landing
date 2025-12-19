@@ -10,9 +10,9 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen hero-gradient overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-40 right-10 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-32 md:w-72 h-32 md:h-72 bg-primary/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-40 right-10 w-48 md:w-96 h-48 md:h-96 bg-primary/5 rounded-full blur-[120px]" />
       </div>
 
       {/* Grid overlay */}

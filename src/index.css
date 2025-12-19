@@ -15,7 +15,7 @@
     --popover: 220 20% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 142 76% 46%;
+    --primary: 142 71% 45%;
     --primary-foreground: 220 20% 6%;
 
     --secondary: 220 20% 14%;
@@ -24,7 +24,7 @@
     --muted: 220 15% 18%;
     --muted-foreground: 220 10% 60%;
 
-    --accent: 142 76% 46%;
+    --accent: 142 71% 45%;
     --accent-foreground: 220 20% 6%;
 
     --destructive: 0 84% 60%;
@@ -32,12 +32,12 @@
 
     --border: 220 15% 20%;
     --input: 220 15% 20%;
-    --ring: 142 76% 46%;
+    --ring: 142 71% 45%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --glow-primary: 142 76% 46%;
+    --glow-primary: 142 71% 45%;
     --surface-glass: 220 20% 12%;
     --text-muted: 220 10% 55%;
     

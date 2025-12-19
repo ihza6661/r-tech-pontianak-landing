@@ -12,9 +12,9 @@ export const WHATSAPP_NUMBER = WHATSAPP_NUMBERS.general;
 
 export const COMPANY_INFO = {
   name: "R-Tech Computer",
-  tagline: "Sale & Service | Since 2013",
-  foundedYear: 2013,
-  yearsInBusiness: new Date().getFullYear() - 2013,
+  tagline: "Sale & Service | Since 2014",
+  foundedYear: 2014,
+  yearsInBusiness: new Date().getFullYear() - 2014,
   address: "Jln. Reformasi Untan, Pontianak",
   fullAddress: "Jln. Reformasi Untan, Pontianak, Kalimantan Barat, Indonesia",
   coordinates: {

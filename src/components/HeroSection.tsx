@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Apple } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import rtechLogo from "@/assets/rtech-logo.jpg";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
@@ -45,11 +45,15 @@ const HeroSection = () => {
 
         {/* Hero content */}
         <div className="flex flex-col items-center justify-center text-center pt-20 pb-32 lg:pt-32 lg:pb-40">
-          {/* Badge */}
-          <div className="mb-8 animate-fade-in">
+          {/* Badges */}
+          <div className="mb-8 animate-fade-in flex flex-wrap justify-center gap-3">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               Dipercaya Sejak {COMPANY_INFO.foundedYear}
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+              <Apple className="h-4 w-4" />
+              Spesialis Macbook
             </span>
           </div>
 

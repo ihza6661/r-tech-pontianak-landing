@@ -50,9 +50,9 @@ const LocationSection = () => {
               key={index}
               className="text-center p-6"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary mb-4">
-                <point.icon className="h-7 w-7" />
-              </div>
+               <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 text-primary mb-4">
+                 <point.icon className="h-6 w-6 md:h-7 md:w-7" />
+               </div>
               <h3 className="font-display text-lg font-bold text-foreground mb-2">
                 {point.title}
               </h3>
@@ -86,9 +86,9 @@ const LocationSection = () => {
             </h3>
 
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                  <MapPin className="h-5 w-5" />
+               <div className="flex items-start gap-3 md:gap-4">
+                 <div className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Alamat</h4>
@@ -99,9 +99,9 @@ const LocationSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                  <Phone className="h-5 w-5" />
+               <div className="flex items-start gap-3 md:gap-4">
+                 <div className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">WhatsApp</h4>
@@ -119,9 +119,9 @@ const LocationSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                  <Clock className="h-5 w-5" />
+               <div className="flex items-start gap-3 md:gap-4">
+                 <div className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                   <Clock className="h-5 w-5" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Jam Operasional</h4>

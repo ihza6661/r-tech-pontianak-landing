@@ -19,9 +19,9 @@ const ContactSelector = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Sales Contact */}
             <div className="glass-card rounded-xl p-6 hover:border-primary/50 transition-all duration-300 group">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                  <ShoppingBag className="h-6 w-6" />
+             <div className="flex items-start gap-3 md:gap-4">
+                 <div className="flex-shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                   <ShoppingBag className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-display font-bold text-foreground mb-1">
@@ -51,9 +51,9 @@ const ContactSelector = () => {
 
             {/* Service Contact */}
             <div className="glass-card rounded-xl p-6 hover:border-primary/50 transition-all duration-300 group">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                  <Wrench className="h-6 w-6" />
+             <div className="flex items-start gap-3 md:gap-4">
+                 <div className="flex-shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                   <Wrench className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-display font-bold text-foreground mb-1">

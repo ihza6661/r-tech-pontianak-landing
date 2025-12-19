@@ -75,13 +75,13 @@ const PaymentMethodsSection = () => {
               className="glass-card rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 group"
             >
               {/* Badge */}
-              <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full mb-4">
+              <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full mb-6 md:mb-4">
                 {method.badge}
               </span>
 
               {/* Icon */}
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors mb-4">
-                <method.icon className="h-7 w-7" />
+              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors mb-5 md:mb-4">
+                <method.icon className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
 
               {/* Content */}

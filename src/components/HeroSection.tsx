@@ -45,8 +45,8 @@ const HeroSection = () => {
 
         {/* Hero content */}
         <div className="flex flex-col items-center justify-center text-center pt-20 pb-32 lg:pt-32 lg:pb-40">
-          {/* Badges */}
-          <div className="mb-8 animate-fade-in flex flex-wrap justify-center gap-3">
+           {/* Badges */}
+           <div className="mb-8 animate-fade-in flex flex-wrap justify-center gap-2 md:gap-3">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               Dipercaya Sejak {COMPANY_INFO.foundedYear}
@@ -83,8 +83,8 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+           {/* Trust indicators */}
+           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             {[
               { value: `${COMPANY_INFO.yearsInBusiness}+`, label: "Tahun Pengalaman" },
               { value: "5000+", label: "Unit Terjual" },

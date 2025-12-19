@@ -72,8 +72,8 @@ const TestimonialsSection = () => {
             Kepercayaan pelanggan adalah prioritas kami. Lihat pengalaman nyata dari ribuan pelanggan yang puas!
           </p>
 
-          {/* Google Rating Badge */}
-          <div className="mt-6 inline-flex items-center gap-4 glass-card px-6 py-3 rounded-full">
+           {/* Google Rating Badge */}
+           <div className="mt-6 inline-flex items-center gap-2 md:gap-4 glass-card px-6 py-3 rounded-full">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -116,9 +116,9 @@ const TestimonialsSection = () => {
                 "{testimonial.text}"
               </p>
 
-              {/* Author info */}
-              <div className="flex items-center gap-3 pt-4 border-t border-border">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+               {/* Author info */}
+               <div className="flex items-center gap-2 md:gap-3 pt-4 border-t border-border">
+                 <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center">
                   <User className="h-5 w-5 text-primary" />
                 </div>
                 <div className="flex-1">

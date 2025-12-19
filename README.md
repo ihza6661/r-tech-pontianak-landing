@@ -1,7 +1,5 @@
 # R-Tech Computer - Modern Landing Page
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ihza6661/r-tech-pontianak-landing)
-
 ## 🚀 Live Demo
 **Production URL**: https://r-tech-pontianak-landing.vercel.app/
 

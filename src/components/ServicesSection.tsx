@@ -51,10 +51,10 @@ const ServicesSection = () => {
               key={index}
               className="group glass-card rounded-2xl p-8 hover:border-primary/50 transition-all duration-300"
             >
-              {/* Icon */}
-              <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 text-primary">
-                <service.icon className="h-7 w-7" />
-              </div>
+               {/* Icon */}
+               <div className="mb-6 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 text-primary">
+                 <service.icon className="h-6 w-6 md:h-7 md:w-7" />
+               </div>
 
               {/* Content */}
               <h3 className="font-display text-xl font-bold text-foreground mb-3">
@@ -91,8 +91,8 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Additional trust badges */}
-        <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16">
+         {/* Additional trust badges */}
+         <div className="mt-16 flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-16">
           {[
             { icon: Shield, label: "Garansi Resmi" },
             { icon: Clock, label: "Fast Response" },

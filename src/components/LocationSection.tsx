@@ -30,33 +30,33 @@ const LocationSection = () => {
   const formattedPhoneSales = formatWhatsAppNumber(WHATSAPP_NUMBERS.sales);
   const formattedPhoneService = formatWhatsAppNumber(WHATSAPP_NUMBERS.service);
 
-  return (
-    <section id="contact" className="py-20 bg-secondary/30 relative">
-      <div className="container mx-auto px-4">
-        {/* Section header */}
-        <div className="text-center mb-12">
-          <span className="text-sm font-medium text-primary uppercase tracking-wider">
-            Kenapa R-Tech?
-          </span>
-          <h2 className="mt-2 font-display text-3xl md:text-4xl font-bold text-foreground">
-            Toko Laptop Terpercaya di Pontianak
-          </h2>
-        </div>
+   return (
+     <section id="contact" className="py-14 md:py-20 bg-secondary/30 relative">
+       <div className="container mx-auto px-4">
+         {/* Section header */}
+         <div className="text-center mb-10 md:mb-12">
+           <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
+             Kenapa R-Tech?
+           </span>
+           <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+             Toko Laptop Terpercaya di Pontianak
+           </h2>
+         </div>
 
-        {/* Trust points */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {trustPoints.map((point, index) => (
-            <div
-              key={index}
-              className="text-center p-6"
-            >
-               <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 text-primary mb-4">
-                 <point.icon className="h-6 w-6 md:h-7 md:w-7" />
+         {/* Trust points */}
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 md:mb-16">
+           {trustPoints.map((point, index) => (
+             <div
+               key={index}
+               className="text-center p-4 sm:p-6"
+             >
+               <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/10 text-primary mb-4">
+                 <point.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />
                </div>
-              <h3 className="font-display text-lg font-bold text-foreground mb-2">
+              <h3 className="font-display text-base sm:text-lg font-bold text-foreground mb-2">
                 {point.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 {point.description}
               </p>
             </div>
@@ -79,20 +79,20 @@ const LocationSection = () => {
             />
           </div>
 
-          {/* Contact info */}
-          <div className="glass-card rounded-2xl p-8 flex flex-col justify-center">
-            <h3 className="font-display text-2xl font-bold text-foreground mb-6">
-              Kunjungi Toko Kami
-            </h3>
+           {/* Contact info */}
+           <div className="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-center">
+             <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-6">
+               Kunjungi Toko Kami
+             </h3>
 
-            <div className="space-y-6">
+             <div className="space-y-6">
                <div className="flex items-start gap-3 md:gap-4">
-                 <div className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                   <MapPin className="h-5 w-5" />
+                 <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                   <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Alamat</h4>
-                  <p className="text-muted-foreground">
+                  <h4 className="font-semibold text-foreground text-sm mb-1">Alamat</h4>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     {COMPANY_INFO.address}<br />
                     Kalimantan Barat, Indonesia
                   </p>
@@ -100,19 +100,19 @@ const LocationSection = () => {
               </div>
 
                <div className="flex items-start gap-3 md:gap-4">
-                 <div className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                   <Phone className="h-5 w-5" />
+                 <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                   <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">WhatsApp</h4>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-semibold text-foreground text-sm mb-2">WhatsApp</h4>
                   <div className="space-y-1">
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       <span className="font-medium text-foreground">Owner:</span> {formattedPhoneOwner}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       <span className="font-medium text-foreground">Jual-Beli:</span> {formattedPhoneSales}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       <span className="font-medium text-foreground">Service:</span> {formattedPhoneService}
                     </p>
                   </div>
@@ -120,12 +120,12 @@ const LocationSection = () => {
               </div>
 
                <div className="flex items-start gap-3 md:gap-4">
-                 <div className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                   <Clock className="h-5 w-5" />
+                 <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                   <Clock className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Jam Operasional</h4>
-                  <p className="text-muted-foreground">
+                  <h4 className="font-semibold text-foreground text-sm mb-1">Jam Operasional</h4>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     {COMPANY_INFO.operatingHours.weekdays}<br />
                     {COMPANY_INFO.operatingHours.weekend}
                   </p>
@@ -135,7 +135,7 @@ const LocationSection = () => {
 
             {/* Coverage area */}
             <div className="mt-8 p-4 rounded-xl bg-primary/5 border border-primary/20">
-              <p className="text-sm text-foreground">
+              <p className="text-xs sm:text-sm text-foreground">
                 <span className="font-semibold text-primary">📦 Area Pengiriman:</span>{" "}
                 Seluruh Kalimantan Barat & Indonesia. Packing aman dengan asuransi!
               </p>

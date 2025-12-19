@@ -32,9 +32,9 @@ const HeroSection = () => {
             <img 
               src={rtechLogo} 
               alt="R-Tech Computer Logo" 
-              className="h-12 w-12 rounded-lg object-cover"
+              className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg object-cover"
             />
-            <span className="font-display text-xl font-bold text-foreground">
+            <span className="font-display text-lg sm:text-xl font-bold text-foreground">
               R-Tech <span className="text-primary">Computer</span>
             </span>
           </div>
@@ -44,34 +44,34 @@ const HeroSection = () => {
         </nav>
 
         {/* Hero content */}
-        <div className="flex flex-col items-center justify-center text-center pt-20 pb-32 lg:pt-32 lg:pb-40">
-           {/* Badges */}
-           <div className="mb-8 animate-fade-in flex flex-wrap justify-center gap-2 md:gap-3">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+        <div className="flex flex-col items-center justify-center text-center pt-16 pb-24 sm:pt-20 md:pt-32 lg:pt-32 lg:pb-40">
+          {/* Badges */}
+          <div className="mb-6 sm:mb-8 animate-fade-in flex flex-wrap justify-center gap-2 md:gap-3">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-primary">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               Dipercaya Sejak {COMPANY_INFO.foundedYear}
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-primary">
               <Apple className="h-4 w-4" />
               Spesialis Macbook
             </span>
           </div>
 
           {/* Main headline */}
-          <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl animate-slide-up">
+          <h1 className="max-w-4xl font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-foreground animate-slide-up">
             Solusi Laptop & Macbook{" "}
             <span className="text-gradient">Terpercaya</span>{" "}
             di Pontianak
           </h1>
 
           {/* Sub-headline */}
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
+          <p className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-muted-foreground animate-slide-up" style={{ animationDelay: '0.1s' }}>
             Cari unit berkualitas dengan harga terjangkau? Kami menyediakan{" "}
             <span className="text-foreground font-medium">laptop bekas rasa baru</span>, layanan tukar tambah, dan servis profesional untuk semua brand.
           </p>
 
           {/* CTA buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <Button variant="hero" size="xl" asChild>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5" />
@@ -83,8 +83,8 @@ const HeroSection = () => {
             </Button>
           </div>
 
-           {/* Trust indicators */}
-           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          {/* Trust indicators */}
+          <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             {[
               { value: `${COMPANY_INFO.yearsInBusiness}+`, label: "Tahun Pengalaman" },
               { value: "5000+", label: "Unit Terjual" },
@@ -92,8 +92,8 @@ const HeroSection = () => {
               { value: "100%", label: "Garansi Resmi" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-2xl md:text-3xl font-display font-bold text-primary">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-lg sm:text-2xl md:text-3xl font-display font-bold text-primary">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>

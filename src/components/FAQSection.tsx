@@ -43,23 +43,23 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-     <section className="py-20 bg-background relative">
+     <section className="py-14 md:py-20 bg-background relative">
        {/* Background accent */}
        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 md:w-[800px] h-64 md:h-[800px] bg-primary/5 rounded-full blur-[150px]" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
-            <HelpCircle className="h-5 w-5 text-primary" />
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">
+            <HelpCircle className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+            <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
               Frequently Asked Questions
             </span>
           </div>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             Pertanyaan yang Sering Diajukan
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
             Punya pertanyaan? Kami punya jawabannya! Temukan informasi lengkap seputar produk dan layanan kami.
           </p>
         </div>
@@ -71,17 +71,17 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="glass-card rounded-xl px-6 border-border"
+                className="glass-card rounded-xl px-4 sm:px-6 border-border"
               >
-                <AccordionTrigger className="text-left hover:no-underline py-5">
+                <AccordionTrigger className="text-left hover:no-underline py-4 sm:py-5">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="font-semibold text-foreground">
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="font-semibold text-foreground text-sm sm:text-base">
                       {faq.question}
                     </span>
                   </div>
                 </AccordionTrigger>
-                 <AccordionContent className="text-muted-foreground leading-relaxed pb-5 pl-6 sm:pl-8">
+                 <AccordionContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed pb-4 sm:pb-5 pl-6 sm:pl-8">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -90,11 +90,11 @@ const FAQSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground mb-2">
+        <div className="mt-10 md:mt-12 text-center">
+          <p className="text-xs sm:text-sm text-muted-foreground mb-2">
             Masih ada pertanyaan lain?
           </p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Hubungi kami langsung via{" "}
             <a
               href="#contact"

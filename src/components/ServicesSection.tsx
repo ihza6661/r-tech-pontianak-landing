@@ -1,22 +1,25 @@
-import { ArrowLeftRight, Wrench, Truck, Shield, Clock, ThumbsUp } from "lucide-react";
+import { ArrowLeftRight, Wrench, Truck, Shield, Clock, ThumbsUp, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
 
 const services = [
   {
     icon: ArrowLeftRight,
     title: "Jual Beli & Tukar Tambah",
-    description: "Tukar laptop lama Anda dengan unit baru. Proses cepat dengan harga terbaik dan transparan.",
+    description: "Ingin upgrade? Bawa laptop lama Anda dan pulang dengan unit yang lebih gahar. Proses cepat dengan harga terbaik dan transparan.",
     features: ["Harga Kompetitif", "Proses Cepat", "Bebas Nego"],
   },
   {
     icon: Wrench,
     title: "Servis Profesional",
-    description: "Teknisi berpengalaman untuk perbaikan laptop & Macbook. Garansi servis hingga 3 bulan.",
+    description: "Jangan biarkan laptop lemot menghambat kerjamu! Mulai dari pembersihan rutin, upgrade RAM/SSD, hingga perbaikan mesin yang kompleks.",
     features: ["Teknisi Bersertifikat", "Garansi Servis", "Spare Part Original"],
+    hasServiceCTA: true,
   },
   {
     icon: Truck,
     title: "Pengiriman Seluruh Indonesia",
-    description: "Packing aman dengan asuransi. Siap kirim ke seluruh Kalimantan Barat dan Indonesia.",
+    description: "Tidak di Pontianak? Tenang, kami menjamin pengiriman aman ke seluruh pelosok negeri dengan packing premium dan asuransi.",
     features: ["Packing Aman", "Asuransi Pengiriman", "Tracking Real-time"],
   },
 ];
@@ -36,6 +39,9 @@ const ServicesSection = () => {
           <h2 className="mt-2 font-display text-3xl md:text-4xl font-bold text-foreground">
             Solusi Lengkap untuk Laptop Anda
           </h2>
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+            Teknisi profesional kami siap mengembalikan performa terbaik gadget Anda
+          </p>
         </div>
 
         {/* Services grid */}
@@ -59,7 +65,7 @@ const ServicesSection = () => {
               </p>
 
               {/* Features */}
-              <ul className="space-y-2">
+              <ul className="space-y-2 mb-6">
                 {service.features.map((feature, fIndex) => (
                   <li key={fIndex} className="flex items-center gap-2 text-sm text-foreground/80">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -67,6 +73,20 @@ const ServicesSection = () => {
                   </li>
                 ))}
               </ul>
+
+              {/* Service CTA */}
+              {service.hasServiceCTA && (
+                <Button variant="outline" size="sm" asChild className="w-full">
+                  <a 
+                    href={generateWhatsAppLink("service")} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    Konsultasi Servis
+                  </a>
+                </Button>
+              )}
             </div>
           ))}
         </div>

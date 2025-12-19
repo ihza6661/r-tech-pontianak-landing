@@ -1,7 +1,8 @@
 import { MessageCircle } from "lucide-react";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
 
 const WhatsAppFloat = () => {
-  const whatsappLink = "https://wa.me/6281234567890?text=Halo%20R-Tech,%20saya%20ingin%20tanya%20stok%20laptop%20hari%20ini";
+  const whatsappLink = generateWhatsAppLink("general");
 
   return (
     <a

@@ -1,5 +1,7 @@
 import { Instagram, MessageCircle, Mail } from "lucide-react";
 import rtechLogo from "@/assets/rtech-logo.jpg";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
+import { COMPANY_INFO } from "@/lib/constants";
 
 const Footer = () => {
   return (
@@ -40,7 +42,7 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-foreground mb-4">Hubungi Kami</h4>
             <div className="flex gap-3">
               <a
-                href="https://wa.me/6281234567890"
+                href={generateWhatsAppLink("general")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all"
@@ -48,7 +50,7 @@ const Footer = () => {
                 <MessageCircle className="h-5 w-5" />
               </a>
               <a
-                href="https://instagram.com/rtechcomputer"
+                href={COMPANY_INFO.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all"
@@ -56,7 +58,7 @@ const Footer = () => {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="mailto:contact@rtechcomputer.com"
+                href={`mailto:${COMPANY_INFO.email}`}
                 className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all"
               >
                 <Mail className="h-5 w-5" />
@@ -71,7 +73,7 @@ const Footer = () => {
             © 2024 R-Tech Computer. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
-            Jln. Reformasi Untan, Pontianak, Kalimantan Barat
+            {COMPANY_INFO.fullAddress}
           </p>
         </div>
       </div>

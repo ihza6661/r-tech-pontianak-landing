@@ -1,9 +1,10 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import rtechLogo from "@/assets/rtech-logo.jpg";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
 
 const HeroSection = () => {
-  const whatsappLink = "https://wa.me/6281234567890?text=Halo%20R-Tech,%20saya%20ingin%20konsultasi%20laptop";
+  const whatsappLink = generateWhatsAppLink("general");
 
   return (
     <section className="relative min-h-screen hero-gradient overflow-hidden">
@@ -53,15 +54,15 @@ const HeroSection = () => {
 
           {/* Main headline */}
           <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl animate-slide-up">
-            Pusat Laptop & Macbook{" "}
-            <span className="text-gradient">Bekas Berkualitas</span>{" "}
+            Solusi Laptop & Macbook{" "}
+            <span className="text-gradient">Terpercaya</span>{" "}
             di Pontianak
           </h1>
 
           {/* Sub-headline */}
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Jual Beli, Tukar Tambah, dan Servis Profesional.{" "}
-            <span className="text-foreground font-medium">Siap kirim ke seluruh Kalbar & Indonesia!</span>
+            Cari unit berkualitas dengan harga terjangkau? Kami menyediakan{" "}
+            <span className="text-foreground font-medium">laptop bekas rasa baru</span>, layanan tukar tambah, dan servis profesional untuk semua brand.
           </p>
 
           {/* CTA buttons */}

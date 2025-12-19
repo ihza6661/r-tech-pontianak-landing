@@ -1,5 +1,7 @@
 import { Cpu, HardDrive, MemoryStick, Monitor, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
+import { COMPANY_INFO } from "@/lib/constants";
 
 import laptopHp from "@/assets/laptop-hp.jpg";
 import laptopAsus from "@/assets/laptop-asus.webp";
@@ -66,8 +68,6 @@ const products = [
 ];
 
 const InventorySection = () => {
-  const whatsappBase = "https://wa.me/6281234567890?text=";
-
   return (
     <section id="products" className="py-20 bg-background relative">
       <div className="container mx-auto px-4">
@@ -141,7 +141,7 @@ const InventorySection = () => {
                   </span>
                   <Button variant="whatsapp" size="sm" asChild>
                     <a
-                      href={`${whatsappBase}Halo, saya tertarik dengan ${product.name}`}
+                      href={generateWhatsAppLink("product", product.name)}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -161,7 +161,7 @@ const InventorySection = () => {
             Lihat lebih banyak unit di Instagram kami
           </p>
           <Button variant="outline" size="lg" asChild>
-            <a href="https://instagram.com/rtechcomputer" target="_blank" rel="noopener noreferrer">
+            <a href={COMPANY_INFO.instagram} target="_blank" rel="noopener noreferrer">
               Kunjungi Instagram
             </a>
           </Button>

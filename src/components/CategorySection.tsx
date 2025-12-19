@@ -1,35 +1,46 @@
 import { Laptop, Gamepad2, Apple, DollarSign } from "lucide-react";
+import { generateWhatsAppLink, WhatsAppMessageType } from "@/lib/whatsapp";
 
 const categories = [
   {
-    title: "Laptop 1-3 Jutaan",
-    description: "Untuk kebutuhan kuliah & kantor",
+    title: "Budget Friendly",
+    priceRange: "1 - 3 Jutaan",
+    description: "Pilihan terbaik untuk tugas sekolah dan administrasi.",
     icon: DollarSign,
-    range: "Budget Friendly",
+    badge: "Hemat",
+    waType: "budget_1_3" as WhatsAppMessageType,
   },
   {
-    title: "Laptop 4-7 Jutaan",
-    description: "Performa seimbang untuk produktivitas",
+    title: "Work & Student",
+    priceRange: "4 - 7 Jutaan",
+    description: "Performa lancar untuk mahasiswa dan pekerja kantoran.",
     icon: Laptop,
-    range: "Best Seller",
+    badge: "Best Seller",
+    waType: "budget_4_7" as WhatsAppMessageType,
   },
   {
-    title: "Laptop 7-10 Jutaan",
-    description: "Spesifikasi tinggi untuk profesional",
+    title: "Pro & Gaming",
+    priceRange: "7 - 10 Jutaan",
+    description: "Spek tinggi untuk desain grafis, editing, dan gaming.",
     icon: Laptop,
-    range: "Premium Choice",
+    badge: "Premium",
+    waType: "budget_7_10" as WhatsAppMessageType,
   },
   {
     title: "Gaming Laptop",
-    description: "GPU dedicated untuk gaming & desain",
+    priceRange: "GPU Dedicated",
+    description: "Performa maksimal untuk gaming AAA dan rendering.",
     icon: Gamepad2,
-    range: "High Performance",
+    badge: "High Performance",
+    waType: "gaming" as WhatsAppMessageType,
   },
   {
     title: "Macbook Specialist",
-    description: "Air, Pro, M1, M2 - Lengkap!",
+    priceRange: "Air • Pro • M1 • M2",
+    description: "Kualitas premium, desain elegan, harga tetap masuk akal.",
     icon: Apple,
-    range: "Apple Expert",
+    badge: "Apple Expert",
+    waType: "macbook" as WhatsAppMessageType,
   },
 ];
 
@@ -46,15 +57,18 @@ const CategorySection = () => {
             Pilih Sesuai Budget Anda
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Semua unit sudah dicek dan dilengkapi garansi. Cek highlight Instagram kami untuk stok terbaru!
+            Semua unit sudah dicek dan dilengkapi garansi. Klik kategori untuk langsung tanya stok via WhatsApp!
           </p>
         </div>
 
         {/* Category grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {categories.map((category, index) => (
-            <div
+            <a
               key={index}
+              href={generateWhatsAppLink(category.waType)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative glass-card rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
             >
               {/* Icon */}
@@ -64,20 +78,23 @@ const CategorySection = () => {
 
               {/* Badge */}
               <span className="absolute top-4 right-4 text-xs font-medium text-primary/70">
-                {category.range}
+                {category.badge}
               </span>
 
               {/* Content */}
-              <h3 className="font-display text-lg font-semibold text-foreground mb-2">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-1">
                 {category.title}
               </h3>
+              <p className="text-sm font-medium text-primary mb-2">
+                {category.priceRange}
+              </p>
               <p className="text-sm text-muted-foreground">
                 {category.description}
               </p>
 
               {/* Hover glow */}
               <div className="absolute inset-0 rounded-xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+            </a>
           ))}
         </div>
       </div>

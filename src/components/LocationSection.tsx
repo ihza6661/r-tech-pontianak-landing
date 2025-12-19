@@ -1,10 +1,16 @@
-import { Shield, Eye, Users, Clock, MapPin, Phone } from "lucide-react";
+import { Shield, Eye, Users, Clock, MapPin, Phone, Apple, Truck } from "lucide-react";
+import { COMPANY_INFO, WHATSAPP_NUMBER } from "@/lib/constants";
 
 const trustPoints = [
   {
     icon: Clock,
-    title: "Dipercaya Sejak 2014",
-    description: "Lebih dari 10 tahun melayani kebutuhan laptop di Pontianak dengan dedikasi penuh.",
+    title: "Pengalaman 10+ Tahun",
+    description: "Kami telah melayani ribuan pelanggan di Pontianak dan seluruh Indonesia sejak tahun 2014.",
+  },
+  {
+    icon: Apple,
+    title: "Spesialis Macbook",
+    description: "Ahli dalam menangani berbagai kendala Macbook dan menyediakan unit second dengan kondisi prima.",
   },
   {
     icon: Eye,
@@ -12,18 +18,15 @@ const trustPoints = [
     description: "Cek stok unit terbaru langsung di highlight Instagram kami. Update setiap hari!",
   },
   {
-    icon: Users,
-    title: "Teknisi Profesional",
-    description: "Tim teknisi berpengalaman dan bersertifikat untuk servis laptop & Macbook.",
-  },
-  {
-    icon: Shield,
-    title: "Garansi Resmi",
-    description: "Setiap unit dilengkapi garansi. Kami jamin kualitas setiap produk yang kami jual.",
+    icon: Truck,
+    title: "Siap Kirim Se-Indonesia",
+    description: "Tidak di Pontianak? Tenang, kami menjamin pengiriman aman ke seluruh pelosok negeri.",
   },
 ];
 
 const LocationSection = () => {
+  const formattedPhone = WHATSAPP_NUMBER.replace(/(\d{2})(\d{3})(\d{4})(\d{4})/, '+$1 $2-$3-$4');
+
   return (
     <section id="contact" className="py-20 bg-secondary/30 relative">
       <div className="container mx-auto px-4">
@@ -87,7 +90,7 @@ const LocationSection = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Alamat</h4>
                   <p className="text-muted-foreground">
-                    Jln. Reformasi Untan, Pontianak<br />
+                    {COMPANY_INFO.address}<br />
                     Kalimantan Barat, Indonesia
                   </p>
                 </div>
@@ -100,7 +103,7 @@ const LocationSection = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">WhatsApp</h4>
                   <p className="text-muted-foreground">
-                    +62 812-3456-7890
+                    {formattedPhone}
                   </p>
                 </div>
               </div>
@@ -112,8 +115,8 @@ const LocationSection = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Jam Operasional</h4>
                   <p className="text-muted-foreground">
-                    Senin - Sabtu: 09:00 - 21:00<br />
-                    Minggu: 10:00 - 18:00
+                    {COMPANY_INFO.operatingHours.weekdays}<br />
+                    {COMPANY_INFO.operatingHours.weekend}
                   </p>
                 </div>
               </div>

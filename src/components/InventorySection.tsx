@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { COMPANY_INFO } from "@/lib/constants";
 import { useEffect, useState } from "react";
+import { formatPriceWithCurrency } from "@/lib/utils";
 
 interface Product {
   id: number
@@ -22,7 +23,7 @@ const InventorySection = () => {
     const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000/api"
     
     // Add cache-busting timestamp and fetch with no-cache
-    fetch(`${apiUrl}/products?per_page=4&_=${Date.now()}`, {
+    fetch(`${apiUrl}/products?per_page=8&_=${Date.now()}`, {
       method: 'GET',
       cache: 'no-store',
       headers: {
@@ -163,7 +164,7 @@ const InventorySection = () => {
                     <span className={`font-display text-base sm:text-lg font-bold ${
                       product.stock > 0 ? 'text-primary' : 'text-muted-foreground'
                     }`}>
-                      Rp {typeof product.price === 'number' ? product.price.toLocaleString('id-ID', { maximumFractionDigits: 0 }) : parseFloat(product.price).toLocaleString('id-ID', { maximumFractionDigits: 0 })}
+                      {formatPriceWithCurrency(product.price)}
                     </span>
                     <Button 
                       variant={product.stock > 0 ? "whatsapp" : "outline"} 

@@ -43,7 +43,7 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-     <section className="py-14 md:py-20 bg-background relative">
+     <section className="py-14 md:py-20 bg-background relative z-0">
        {/* Background accent */}
        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 md:w-[800px] h-64 md:h-[800px] bg-primary/5 rounded-full blur-[150px]" />
 

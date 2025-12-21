@@ -66,13 +66,13 @@ const HeroSection = () => {
                 />
                 <div>
                   <span className="font-display text-base md:text-xl font-bold text-foreground">
-                    R-Tech <span className="text-primary">Computer</span>
+                    R-Tech <br /><span className="text-primary">Computer</span>
                   </span>
                 </div>
               </div>
 
               {/* Right side content */}
-              <div className="flex items-center gap-6">
+              <div className="flex items-center">
                 {/* Desktop NAP Info */}
                 <div className="hidden lg:flex items-center gap-6 text-sm">
                   <a 

@@ -4,10 +4,24 @@
  * This utility provides client-side event tracking for conversion optimization.
  * Integrates with Google Analytics 4 and Facebook Pixel for comprehensive tracking.
  * 
+ * Privacy & Data Retention:
+ * - Events stored in localStorage are automatically cleaned up after 24 hours (configurable)
+ * - Cleanup runs automatically on app initialization via cleanupExpiredEvents()
+ * - Respects GDPR and privacy regulations by not storing data indefinitely
+ * - Maximum 100 events stored to prevent localStorage quota issues
+ * 
+ * Configuration:
+ * - VITE_ANALYTICS_RETENTION_HOURS: How long to keep events (default: 24 hours)
+ * - VITE_ANALYTICS_MAX_EVENTS: Maximum events to store (default: 100)
+ * 
  * Usage:
  * import { trackEvent, trackWhatsAppClick, trackNavigation } from '@/lib/analytics'
  * 
  * trackEvent('button_click', { section: 'hero', button: 'cta-primary' })
+ * 
+ * Maintenance:
+ * - cleanupExpiredEvents() is called automatically on app initialization
+ * - Manual cleanup available via clearStoredEvents()
  */
 
 import { 
@@ -26,6 +40,7 @@ import {
   trackFBPixelFormInteraction,
   sendFBPixelCustomEvent
 } from './fbpixel';
+import { APP_CONFIG } from './config';
 
 declare global {
   interface Window {
@@ -268,15 +283,26 @@ export function trackProductView(productName: string, price: string | number): v
 
 /**
  * Store event data locally for manual analysis
+ * Implements time-based retention policy for privacy compliance
  */
 function storeEventLocally(eventData: EventData): void {
   try {
     const storageKey = 'rtech_analytics_events';
     const existingData = localStorage.getItem(storageKey);
-    const events = existingData ? JSON.parse(existingData) : [];
+    let events = existingData ? JSON.parse(existingData) : [];
     
-    // Keep only last 100 events to avoid storage bloat
-    const updatedEvents = [...events, eventData].slice(-100);
+    // Filter out expired events based on retention policy
+    const retentionMs = APP_CONFIG.analytics.retentionHours * 60 * 60 * 1000;
+    const now = Date.now();
+    events = events.filter((event: EventData) => {
+      const eventTimestamp = event.metadata?.timestamp 
+        ? new Date(event.metadata.timestamp as string).getTime()
+        : 0;
+      return eventTimestamp && (now - eventTimestamp) < retentionMs;
+    });
+    
+    // Add new event and keep only last N events to avoid storage bloat
+    const updatedEvents = [...events, eventData].slice(-APP_CONFIG.analytics.maxEvents);
     
     localStorage.setItem(storageKey, JSON.stringify(updatedEvents));
   } catch (error) {
@@ -367,6 +393,71 @@ export function clearStoredEvents(): void {
     console.log('✅ Analytics data cleared');
   } catch (error) {
     console.warn('Could not clear analytics data:', error);
+  }
+}
+
+/**
+ * Clean up expired analytics events from localStorage
+ * Automatically removes events older than the configured retention period
+ * 
+ * Privacy-first approach:
+ * - Respects GDPR/privacy guidelines by not storing data indefinitely
+ * - Prevents localStorage bloat
+ * - Should be called on app initialization
+ * 
+ * @returns Number of events removed (for logging/debugging)
+ */
+export function cleanupExpiredEvents(): number {
+  try {
+    const storageKey = 'rtech_analytics_events';
+    const existingData = localStorage.getItem(storageKey);
+    
+    if (!existingData) {
+      return 0; // No data to clean up
+    }
+    
+    const events: EventData[] = JSON.parse(existingData);
+    const originalCount = events.length;
+    
+    // Filter out expired events
+    const retentionMs = APP_CONFIG.analytics.retentionHours * 60 * 60 * 1000;
+    const now = Date.now();
+    
+    const validEvents = events.filter((event) => {
+      // Events without timestamps are considered expired (safety measure)
+      if (!event.metadata?.timestamp) {
+        return false;
+      }
+      
+      const eventTimestamp = new Date(event.metadata.timestamp as string).getTime();
+      const age = now - eventTimestamp;
+      
+      return age < retentionMs;
+    });
+    
+    const removedCount = originalCount - validEvents.length;
+    
+    // Only update localStorage if events were removed
+    if (removedCount > 0) {
+      if (validEvents.length === 0) {
+        localStorage.removeItem(storageKey);
+      } else {
+        localStorage.setItem(storageKey, JSON.stringify(validEvents));
+      }
+      
+      // Log cleanup activity in development mode
+      if (import.meta.env.DEV) {
+        console.log(
+          `🧹 Analytics cleanup: Removed ${removedCount} expired event(s), ` +
+          `${validEvents.length} event(s) retained (retention: ${APP_CONFIG.analytics.retentionHours}h)`
+        );
+      }
+    }
+    
+    return removedCount;
+  } catch (error) {
+    console.warn('Could not cleanup expired analytics events:', error);
+    return 0;
   }
 }
 

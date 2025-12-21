@@ -15,6 +15,9 @@
  */
 
 import { COMPANY_INFO, WHATSAPP_NUMBERS } from './constants';
+import { APP_CONFIG } from './config';
+import rtechLogo from '@/assets/rtech-logo.jpg';
+import placeholderImg from '@/assets/placeholder.svg';
 
 export interface SchemaOrganization {
   '@context': string;
@@ -94,11 +97,11 @@ export function generateLocalBusinessSchema(): SchemaOrganization {
     '@type': 'ComputerStore',
     name: COMPANY_INFO.name,
     description: `${COMPANY_INFO.name} adalah pusat jual beli laptop dan Macbook bekas berkualitas di Pontianak. Melayani tukar tambah, servis profesional, dan pengiriman seluruh Indonesia sejak ${COMPANY_INFO.foundedYear}.`,
-    url: 'https://rtechcomputer.com',
-    logo: 'https://rtechcomputer.com/rtech-logo.jpg',
+    url: APP_CONFIG.baseUrl,
+    logo: rtechLogo,
     image: [
-      'https://rtechcomputer.com/rtech-logo.jpg',
-      'https://rtechcomputer.com/placeholder.svg',
+      rtechLogo,
+      placeholderImg,
     ],
     telephone: `+${WHATSAPP_NUMBERS.owner}`,
     address: {
@@ -220,7 +223,7 @@ export function generateProductSchema(product: {
     },
     offers: {
       '@type': 'Offer',
-      url: 'https://rtechcomputer.com',
+      url: APP_CONFIG.baseUrl,
       priceCurrency: 'IDR',
       price: product.price,
       priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 days

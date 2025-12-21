@@ -1,4 +1,52 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
+import { APP_CONFIG } from '@/lib/config';
+
+/**
+ * Query Keys Factory
+ * 
+ * Standardized query keys for React Query cache management.
+ * Follows hierarchical structure: [entity, scope, ...identifiers]
+ * 
+ * Benefits:
+ * - Type-safe cache key access
+ * - Easy cache invalidation
+ * - Prevents cache key typos
+ * 
+ * Usage:
+ * const { data } = useQuery({
+ *   queryKey: queryKeys.products.list({ per_page: 8 }),
+ *   queryFn: () => api.getProducts(...)
+ * })
+ */
+export const queryKeys = {
+  /**
+   * Product-related query keys
+   */
+  products: {
+    all: ['products'] as const,
+    lists: () => [...queryKeys.products.all, 'list'] as const,
+    list: (filters: Record<string, unknown>) => 
+      [...queryKeys.products.lists(), { filters }] as const,
+    details: () => [...queryKeys.products.all, 'detail'] as const,
+    detail: (id: number) => [...queryKeys.products.details(), id] as const,
+  },
+  
+  /**
+   * Category-related query keys
+   */
+  categories: {
+    all: ['categories'] as const,
+    lists: () => [...queryKeys.categories.all, 'list'] as const,
+    detail: (id: number) => [...queryKeys.categories.all, id] as const,
+  },
+  
+  /**
+   * Contact form submissions
+   * Note: Mutations typically don't need query keys, but included for consistency
+   */
+  contacts: {
+    all: ['contacts'] as const,
+  },
+};
 
 export interface Product {
   id: number
@@ -43,7 +91,7 @@ export interface PaginatedResponse<T> {
 class ApiClient {
   private baseUrl: string
 
-  constructor(baseUrl: string = API_URL) {
+  constructor(baseUrl: string = APP_CONFIG.apiUrl) {
     this.baseUrl = baseUrl
   }
 

@@ -2,56 +2,15 @@ import { Cpu, HardDrive, MemoryStick, Monitor, MessageCircle } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { COMPANY_INFO } from "@/lib/constants";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { formatPriceWithCurrency } from "@/lib/utils";
 import { generateProductSchema, injectSchemaMarkup } from "@/lib/schema";
-
-interface Product {
-  id: number
-  name: string
-  price: number | string
-  description: string
-  specifications: Record<string, string>
-  image_url: string
-  stock: number
-}
+import { useProducts } from "@/hooks/useProducts";
+import placeholderImg from "@/assets/placeholder.svg";
 
 const InventorySection = () => {
-  const [products, setProducts] = useState<Product[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000/api"
-    
-    // Add cache-busting timestamp and fetch with no-cache
-    fetch(`${apiUrl}/products?per_page=8&_=${Date.now()}`, {
-      method: 'GET',
-      cache: 'no-store',
-      headers: {
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache'
-      }
-    })
-      .then((res) => {
-        console.log('✅ Products API Response Status:', res.status)
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`)
-        }
-        return res.json()
-      })
-      .then((data) => {
-        console.log('✅ Products API Data:', data)
-        // Handle paginated response
-        const productList = data.data || data
-        console.log('✅ Product List:', productList)
-        setProducts(Array.isArray(productList) ? productList : [])
-        setLoading(false)
-      })
-      .catch((error) => {
-        console.error("❌ Failed to fetch products:", error)
-        setLoading(false)
-      })
-  }, [])
+  // Fetch products using React Query hook
+  const { data: products = [], isLoading: loading } = useProducts({ perPage: 8 });
 
   // Inject Product Schema for first 4 products (above the fold)
   useEffect(() => {
@@ -62,7 +21,7 @@ const InventorySection = () => {
           const schema = generateProductSchema({
             name: product.name,
             description: product.description || `${product.name} - Laptop bekas berkualitas dari R-Tech Computer`,
-            image: product.image_url || 'https://rtechcomputer.com/placeholder.svg',
+            image: product.image_url || placeholderImg,
             price: typeof product.price === 'number' ? product.price : parseFloat(String(product.price).replace(/[^0-9.-]+/g, '')) || 0,
             condition: 'UsedCondition',
             sku: `RTECH-${product.id}`

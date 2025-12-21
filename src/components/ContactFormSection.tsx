@@ -1,6 +1,7 @@
 import { Mail, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useContactMutation } from "@/hooks/useContactMutation";
 
 interface FormData {
   name: string
@@ -24,8 +25,10 @@ const ContactFormSection = () => {
   })
 
   const [errors, setErrors] = useState<FormErrors>({})
-  const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  
+  // Use React Query mutation for form submission
+  const mutation = useContactMutation();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -47,45 +50,35 @@ const ContactFormSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setErrors({})
-    setSubmitting(true)
 
-    try {
-      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000/api"
-      const response = await fetch(`${apiUrl}/contacts`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
+    mutation.mutate(formData, {
+      onSuccess: () => {
+        // Show success message (as per requirements)
+        setSubmitted(true)
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          category: "general",
+          message: "",
+        })
 
-      if (!response.ok) {
-        const errorData = await response.json()
-        setErrors(errorData.errors || { general: "Terjadi kesalahan saat mengirim pesan" })
-        setSubmitting(false)
-        return
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitted(false)
+        }, 5000)
+      },
+      onError: (error: Error & { response?: { data?: { errors?: FormErrors } } }) => {
+        // Handle validation errors from backend
+        if (error.response?.data?.errors) {
+          setErrors(error.response.data.errors)
+        } else {
+          setErrors({ general: "Gagal menghubungi server. Silakan coba lagi." })
+        }
       }
-
-      // Success
-      setSubmitted(true)
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        category: "general",
-        message: "",
-      })
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitted(false)
-      }, 5000)
-    } catch (error) {
-      setErrors({ general: "Gagal menghubungi server. Silakan coba lagi." })
-    } finally {
-      setSubmitting(false)
-    }
+    })
   }
 
   return (
@@ -271,10 +264,10 @@ const ContactFormSection = () => {
               <div className="flex gap-4">
                 <Button
                   type="submit"
-                  disabled={submitting}
+                  disabled={mutation.isPending}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-2 rounded-lg font-medium transition-colors disabled:opacity-50"
                 >
-                  {submitting ? "Mengirim..." : "Kirim Pesan"}
+                  {mutation.isPending ? "Mengirim..." : "Kirim Pesan"}
                 </Button>
                 <p className="text-xs sm:text-sm text-muted-foreground flex items-center">
                   Untuk respon lebih cepat, hubungi kami via WhatsApp

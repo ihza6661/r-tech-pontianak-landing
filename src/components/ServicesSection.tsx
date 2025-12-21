@@ -1,6 +1,7 @@
 import { ArrowLeftRight, Wrench, Truck, Shield, Clock, ThumbsUp, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const services = [
   {
@@ -27,7 +28,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-     <section id="services" className="py-20 bg-secondary/30 relative">
+     <section id="services" className="py-20 bg-secondary/30 relative z-0">
        {/* Background accent */}
        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 md:w-[600px] h-64 md:h-[600px] bg-primary/5 rounded-full blur-[150px]" />
 
@@ -82,6 +83,11 @@ const ServicesSection = () => {
                       href={generateWhatsAppLink("sales")} 
                       target="_blank" 
                       rel="noopener noreferrer"
+                      onClick={() => trackWhatsAppClick({
+                        type: 'sales',
+                        location: 'services-section',
+                        buttonText: 'Tanya Harga Sekarang'
+                      })}
                     >
                       <MessageCircle className="h-4 w-4" />
                       Tanya Harga Sekarang
@@ -96,6 +102,11 @@ const ServicesSection = () => {
                       href={generateWhatsAppLink("service")} 
                       target="_blank" 
                       rel="noopener noreferrer"
+                      onClick={() => trackWhatsAppClick({
+                        type: 'service',
+                        location: 'services-section',
+                        buttonText: 'Konsultasi Servis'
+                      })}
                     >
                       <MessageCircle className="h-4 w-4" />
                       Konsultasi Servis

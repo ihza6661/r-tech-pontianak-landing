@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
   const totalReviews = 500;
 
   return (
-     <section id="testimonials" className="py-14 md:py-20 bg-secondary/30 relative overflow-hidden">
+     <section id="testimonials" className="py-14 md:py-20 bg-secondary/30 relative overflow-hidden z-0">
        {/* Background effects */}
        <div className="absolute top-0 right-0 w-48 md:w-[600px] h-48 md:h-[600px] bg-primary/5 rounded-full blur-[150px]" />
        <div className="absolute bottom-0 left-0 w-40 md:w-[500px] h-40 md:h-[500px] bg-primary/3 rounded-full blur-[120px]" />

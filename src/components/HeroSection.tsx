@@ -4,6 +4,7 @@ import rtechLogo from "@/assets/rtech-logo.jpg";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { COMPANY_INFO, WHATSAPP_NUMBERS } from "@/lib/constants";
 import { useState, useEffect } from "react";
+import { trackWhatsAppClick, trackNavigation } from "@/lib/analytics";
 
 const HeroSection = () => {
   const whatsappLink = generateWhatsAppLink("general");
@@ -57,7 +58,7 @@ const HeroSection = () => {
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between py-4">
               {/* Logo */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
                 <img 
                   src={rtechLogo} 
                   alt="R-Tech Computer Logo" 
@@ -65,62 +66,70 @@ const HeroSection = () => {
                 />
                 <div className="flex flex-col">
                   <span className="font-display text-lg md:text-xl font-bold text-foreground">
-                    R-Tech <span className="text-primary">Computer</span>
+                    R-Tech <br /><span className="text-primary">Computer</span>
                   </span>
-                  <span className="hidden md:block text-xs text-muted-foreground">
+                  {/* <span className="hidden md:block text-xs text-muted-foreground">
                     {COMPANY_INFO.tagline}
-                  </span>
+                  </span> */}
                 </div>
               </div>
 
-              {/* Desktop NAP Info */}
-              <div className="hidden lg:flex items-center gap-6 text-sm">
-                <a 
-                  href={`tel:+${WHATSAPP_NUMBERS.owner}`}
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Phone className="h-4 w-4" />
-                  <span className="font-medium">0821-5700-0466</span>
-                </a>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <MapPin className="h-4 w-4" />
-                  <span>{COMPANY_INFO.address}</span>
-                </div>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Clock className="h-4 w-4" />
-                  <span>Sen-Sab: 09:00-21:00</span>
-                </div>
-              </div>
-
-              {/* Desktop Navigation Links */}
-              <div className="hidden md:flex items-center gap-1">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary/50"
+              {/* Right side content */}
+              <div className="flex items-center gap-2">
+                {/* Desktop NAP Info */}
+                <div className="hidden lg:flex items-center gap-6 text-sm">
+                  <a 
+                    href={`tel:+${WHATSAPP_NUMBERS.owner}`}
+                    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {link.label}
+                    <Phone className="h-4 w-4" />
+                    <span className="font-medium">0821-5700-0466</span>
                   </a>
-                ))}
-              </div>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <MapPin className="h-4 w-4" />
+                    <span>{COMPANY_INFO.address}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Clock className="h-4 w-4" />
+                    <span>Sen-Sab: 09:00-21:00</span>
+                  </div>
+                </div>
 
-              {/* Mobile - Phone + Menu Toggle */}
-              <div className="flex md:hidden items-center gap-2">
-                <a 
-                  href={`tel:+${WHATSAPP_NUMBERS.owner}`}
-                  className="p-2 text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="Telepon"
-                >
-                  <Phone className="h-5 w-5" />
-                </a>
-                <button
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="p-2 text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="Toggle menu"
-                >
-                  {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </button>
+                {/* Desktop Navigation Links */}
+                <div className="hidden md:flex items-center gap-1">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => trackNavigation({
+                        from: 'header-nav',
+                        to: link.label,
+                        method: 'click'
+                      })}
+                      className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary/50"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+
+                {/* Mobile - Phone + Menu Toggle */}
+                <div className="flex md:hidden items-center gap-2">
+                  <a 
+                    href={`tel:+${WHATSAPP_NUMBERS.owner}`}
+                    className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                    aria-label="Telepon"
+                  >
+                    <Phone className="h-5 w-5" />
+                  </a>
+                  <button
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                    aria-label="Toggle menu"
+                  >
+                    {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -144,7 +153,14 @@ const HeroSection = () => {
                     <a
                       key={link.href}
                       href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        trackNavigation({
+                          from: 'mobile-nav',
+                          to: link.label,
+                          method: 'click'
+                        });
+                      }}
                       className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-lg transition-colors"
                     >
                       {link.label}
@@ -186,13 +202,31 @@ const HeroSection = () => {
           {/* CTA buttons */}
           <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <Button variant="hero" size="xl" asChild>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <a 
+                href={whatsappLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick({
+                  type: 'general',
+                  location: 'hero-section',
+                  buttonText: 'Chat Sekarang - Respon 5 Menit'
+                })}
+              >
                 <MessageCircle className="h-5 w-5" />
                 Chat Sekarang - Respon 5 Menit
               </a>
             </Button>
             <Button variant="outline" size="xl" asChild>
-              <a href="#products">Lihat Stok Unit</a>
+              <a 
+                href="#products"
+                onClick={() => trackNavigation({
+                  from: 'hero',
+                  to: 'products',
+                  method: 'click'
+                })}
+              >
+                Lihat Stok Unit
+              </a>
             </Button>
           </div>
 

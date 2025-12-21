@@ -1,4 +1,14 @@
-import { Wrench, Laptop, HardDrive, Cpu, Battery, Monitor, Zap, MessageCircle, Check } from "lucide-react";
+import {
+  Wrench,
+  Laptop,
+  HardDrive,
+  Cpu,
+  Battery,
+  Monitor,
+  Zap,
+  MessageCircle,
+  Check,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { trackWhatsAppClick } from "@/lib/analytics";
@@ -63,7 +73,7 @@ const ServicePricingSection = () => {
     <section className="py-20 bg-background relative z-0">
       {/* Background effects */}
       <div className="absolute top-0 left-0 w-64 md:w-[500px] h-64 md:h-[500px] bg-primary/5 rounded-full blur-[150px]" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center mb-12">
@@ -75,7 +85,9 @@ const ServicePricingSection = () => {
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             Harga bisa bervariasi tergantung tipe dan kondisi unit. <br />
-            <span className="text-primary font-medium">Hubungi kami untuk estimasi harga lebih akurat!</span>
+            <span className="text-primary font-medium">
+              Hubungi kami untuk estimasi harga lebih akurat!
+            </span>
           </p>
         </div>
 
@@ -115,16 +127,24 @@ const ServicePricingSection = () => {
                     <Laptop className="h-4 w-4 inline mr-1" />
                     Laptop Reguler
                   </span>
-                  <span className="text-sm font-semibold text-primary">{service.laptopPrice}</span>
+                  <span className="text-sm font-semibold text-primary">
+                    {service.laptopPrice}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">
-                    <svg className="h-4 w-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor">
+                    <svg
+                      className="h-4 w-4 inline mr-1"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
                       <path d="M20.8 2.8C20.5 2.4 20.1 2 19.6 2H4.4C3.9 2 3.5 2.4 3.2 2.8L2 5.5V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V5.5L20.8 2.8M20 18H4V6.7L4.8 5H19.2L20 6.7V18M12 9C10.3 9 9 10.3 9 12S10.3 15 12 15 15 13.7 15 12 13.7 9 12 9Z" />
                     </svg>
                     Macbook
                   </span>
-                  <span className="text-sm font-semibold text-primary">{service.macbookPrice}</span>
+                  <span className="text-sm font-semibold text-primary">
+                    {service.macbookPrice}
+                  </span>
                 </div>
               </div>
 
@@ -137,16 +157,17 @@ const ServicePricingSection = () => {
         </div>
 
         {/* What's Included Section */}
-        <div className="glass-card rounded-2xl p-8 md:p-12 mb-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="glass-card rounded-2xl p-6 md:p-12 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8">
             <div>
-              <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
+              <h3 className="font-display text-xl md:text-3xl font-bold text-foreground mb-3 md:mb-4">
                 Yang Anda Dapatkan
               </h3>
               <p className="text-muted-foreground mb-6">
-                Semua servis kami sudah termasuk jaminan kualitas dan garansi resmi untuk ketenangan Anda.
+                Semua servis kami sudah termasuk jaminan kualitas dan garansi
+                resmi untuk ketenangan Anda.
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-2 md:space-y-3">
                 {includedFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
@@ -159,24 +180,34 @@ const ServicePricingSection = () => {
             </div>
 
             {/* CTA Box */}
-            <div className="bg-primary/5 rounded-xl p-8 text-center border border-primary/20">
-              <Wrench className="h-12 w-12 text-primary mx-auto mb-4" />
+            <div className="bg-primary/5 rounded-xl p-6 md:p-8 text-center border border-primary/20 md:sticky md:top-24">
+              {/* <Wrench className="h-12 w-12 text-primary mx-auto mb-4" /> */}
+              <Wrench className="h-10 w-10 md:h-12 md:w-12 text-primary mx-auto mb-4" />
+
               <h4 className="font-display text-xl font-bold text-foreground mb-2">
                 Butuh Estimasi Harga?
               </h4>
               <p className="text-sm text-muted-foreground mb-6">
-                Chat langsung dengan teknisi kami untuk mendapatkan perkiraan biaya yang lebih detail dan akurat.
+                Chat langsung dengan teknisi kami untuk mendapatkan perkiraan
+                biaya yang lebih detail dan akurat.
               </p>
-              <Button variant="default" size="lg" asChild className="w-full">
+              <Button
+                variant="default"
+                size="lg"
+                asChild
+                className="w-full h-11 md:h-12"
+              >
                 <a
                   href={generateWhatsAppLink("service")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick({
-                    type: 'service',
-                    location: 'service-pricing-section',
-                    buttonText: 'Konsultasi Servis Gratis'
-                  })}
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      type: "service",
+                      location: "service-pricing-section",
+                      buttonText: "Konsultasi Servis Gratis",
+                    })
+                  }
                 >
                   <MessageCircle className="h-5 w-5" />
                   Konsultasi Servis Gratis
@@ -195,8 +226,9 @@ const ServicePricingSection = () => {
         {/* Additional Trust Signals */}
         <div className="text-center">
           <p className="text-sm text-muted-foreground mb-4">
-            <span className="text-primary font-semibold">💡 Tips:</span> Semakin cepat Anda servis, semakin kecil kerusakan yang terjadi.
-            Jangan tunda perbaikan laptop Anda!
+            <span className="text-primary font-semibold">💡 Tips:</span> Semakin
+            cepat Anda servis, semakin kecil kerusakan yang terjadi. Jangan
+            tunda perbaikan laptop Anda!
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">

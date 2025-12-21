@@ -206,9 +206,9 @@ This is a commercial project for R-Tech Computer. Unauthorized use or reproducti
 
 ## 👨‍💻 Developer
 
-**Created by**: [Your Name]
+**Created by**: Ihza Mahendra
 - GitHub: [@ihza6661](https://github.com/ihza6661)
-- Portfolio: [Your Portfolio URL]
+- Portfolio: (https://portfolio.ihza.me)
 
 **Other Projects**:
 - [Dua Insan Story](https://github.com/ihza6661) - Fullstack E-Commerce Platform
@@ -216,10 +216,8 @@ This is a commercial project for R-Tech Computer. Unauthorized use or reproducti
 ## 🤝 Contact
 
 For inquiries about this project or similar web development services:
-- Email: [Your Email]
-- WhatsApp: [Your Number]
-- LinkedIn: [Your LinkedIn]
-
+- Email: [ihzahmahendra6661@gmail.com]
+- WhatsApp: [089692070270]
 ---
 
 **Built with ❤️ for R-Tech Computer, Pontianak**

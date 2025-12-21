@@ -347,13 +347,22 @@ MULAI TANPA RISIKO! 🎯
 [Large Badge - Center]
 ┌────────────────────────────────────────┐
 │                                        │
-│     🎁 TRIAL GRATIS 1-2 BULAN 🎁      │
+│  🎁 PROGRAM PILOT EKSKLUSIF 1-2 BULAN 🎁  │
 │                                        │
 └────────────────────────────────────────┘
 
+**MENGAPA "PROGRAM PILOT EKSKLUSIF"?**
+
+Ini bukan sekadar trial → Ini kesempatan menjadi PIONEER:
+• Anda bukan "tester" → Anda partner pilot project
+• Eksklusif untuk early adopters → Posisi Anda sebagai market leader
+• Win-win partnership → Bukan one-sided favor
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 BAGAIMANA CARA KERJANYA?
 
-STEP 1️⃣ : Trial Gratis 1-2 Bulan
+STEP 1️⃣ : Program Pilot Eksklusif 1-2 Bulan
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Website deploy & live
 • Share ke customer Anda

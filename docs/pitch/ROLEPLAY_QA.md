@@ -72,7 +72,7 @@ Yang penting: trial-nya gratis. Jadi Bapak/Ibu bisa test value-nya dulu sebelum 
 - Explain your special pricing (logical reason)
 - Frame as investment vs expense (mindset shift)
 - Show ROI calculation (numbers speak)
-- Emphasize free trial (remove risk barrier)
+- Emphasize pilot program (remove risk barrier)
 
 ---
 
@@ -96,15 +96,15 @@ ROI: 1,500%.
 
 Tapi ini assuming conservative scenario ya Pak/Bu. Kalau website convert lebih bagus (bisa jadi 15-20 unit per bulan), balik modalnya bisa 2 minggu aja.
 
-Yang jelas: trial-nya gratis 1-2 bulan. Jadi kita bisa lihat data real. Berapa visitor? Berapa yang chat? Berapa yang closing?
+Yang jelas: program pilot gratis 1-2 bulan. Jadi kita bisa lihat data real. Berapa visitor? Berapa yang chat? Berapa yang closing?
 
-Kalau dalam trial period udah kelihatan bring 5-7 leads yang convert, Bapak/Ibu pasti yakin ini worthwhile investment."
+Kalau dalam pilot period udah kelihatan bring 5-7 leads yang convert, Bapak/Ibu pasti yakin ini worthwhile investment."
 
 **Why This Works:**
 - Specific numbers (credible, not vague)
 - Conservative estimate (underpromise, overdeliver)
 - Show math clearly (transparent)
-- Tie back to free trial (de-risk)
+- Tie back to pilot program (de-risk)
 
 ---
 
@@ -256,9 +256,9 @@ Website juga gitu. Saya yang urus infrastruktur, Bapak/Ibu tinggal pakai."
 "Susah sih kalau udah setup..."
 
 **GOOD Response ✅:**
-"Pak/Bu, that's exactly why saya offer FREE TRIAL 1-2 bulan.
+"Pak/Bu, that's exactly why saya offer PROGRAM PILOT EKSKLUSIF 1-2 bulan.
 
-Selama trial period:
+Selama program pilot:
 - Tidak ada biaya sama sekali
 - Tidak ada contract
 - Tidak ada obligation
@@ -272,7 +272,7 @@ Bapak/Ibu test drive dulu. Lihat hasilnya:
 Kalau satisfied, baru kita lanjut dengan paket maintenance.
 Kalau tidak satisfied, stop aja. No hard feelings. No charge.
 
-Jadi tidak ada konsep 'refund' because there's nothing to refund during trial.
+Jadi tidak ada konsep 'refund' because there's nothing to refund during program pilot.
 
 Dan even after trial, kalau Bapak/Ibu decide lanjut paket maintenance (Rp 200k/bulan), itu bisa stop kapan saja. No lock-in contract.
 
@@ -424,14 +424,14 @@ Dan honestly Pak/Bu, ini window of opportunity ga akan lama. Cepat atau lambat, 
 
 Question-nya: Mau R-Tech jadi pioneer atau follower?
 
-Plus, dengan trial gratis, literally tidak ada yang Bapak/Ibu rugi kalau try duluan."
+Plus, dengan program pilot eksklusif, literally tidak ada yang Bapak/Ibu rugi kalau try duluan."
 
 **Why This Works:**
 - Reframe as opportunity (not risk)
 - Show two scenarios (clear choice)
 - Use analogy (Tokopedia vs Bukalapak)
 - Create urgency (window closing)
-- Tie back to free trial (no-brainer)
+- Tie back to pilot program (no-brainer)
 
 ---
 
@@ -515,7 +515,7 @@ Untuk R-Tech project, saya research:
 Jadi meskipun laptop store pertama, saya approach-nya data-driven dan informed.
 
 **4. Trial = Proof:**
-Makanya saya offer free trial. Bapak/Ibu ga perlu trust words saya - trust HASIL saya.
+Makanya saya offer program pilot eksklusif. Bapak/Ibu ga perlu trust words saya - trust HASIL saya.
 
 1-2 bulan trial, lihat performance. Kalau bagus, lanjut. Kalau tidak, stop.
 
@@ -729,11 +729,11 @@ Lebih efficient dan clear. Kapan waktu yang pas untuk kita meet bertiga?"
 **GOOD Response ✅:**
 "Totally understand Pak/Bu. Cash flow business itu dynamic, saya paham.
 
-Good news: karena trial-nya gratis, kita bisa mulai SEKARANG tanpa budget!
+Good news: karena program pilot gratis, kita bisa mulai SEKARANG tanpa budget!
 
 Here's the plan:
 
-**Month 1-2: FREE Trial**
+**Month 1-2: PROGRAM PILOT GRATIS**
 - Website deploy & live (no cost)
 - Bapak/Ibu test, gather data
 - Zero financial commitment
@@ -758,7 +758,7 @@ Mau coba approach ini?"
 "Atau kalau mau creative, kita bisa arrange:
 
 **Option 1: Delayed Payment**
-- Trial gratis 2 bulan
+- Program pilot gratis 2 bulan
 - Setup fee dibayar bulan ke-3 (setelah Bapak/Ibu lihat results)
 - Maintenance mulai bulan ke-4
 
@@ -771,7 +771,7 @@ Mana yang work untuk cash flow Bapak/Ibu?"
 
 **Why This Works:**
 - Acknowledge budget concern (empathize)
-- Show free trial removes budget barrier (solve immediate objection)
+- Show pilot program removes budget barrier (solve immediate objection)
 - Explain start-now-pay-later approach (reduce friction)
 - Show website can self-fund (ROI messaging)
 - Offer creative financing (flexibility)
@@ -792,8 +792,8 @@ Prosesnya super simple:
 
 **TODAY (5 menit):**
 Saya butuh confirm dari Bapak/Ibu:
-1. ✅ Agree untuk trial gratis 1-2 bulan - Yes?
-2. ✅ Commit untuk kasih feedback honest setelah trial - Yes?
+1. ✅ Agree untuk program pilot eksklusif 1-2 bulan - Yes?
+2. ✅ Commit untuk kasih feedback honest setelah pilot - Yes?
 
 **THIS WEEK (30 menit dari Bapak/Ibu):**
 Saya butuh materials:
@@ -814,13 +814,13 @@ Bisa via WhatsApp/email ke saya, no rush. Kapan paling convenient? Besok? 2-3 ha
 - Saya tunjukkin cara share link, cara track visitors, cara request updates
 - Bapak/Ibu ready to launch!
 
-**MONTH 1-2 (trial period):**
+**MONTH 1-2 (pilot period):**
 - Website running
 - Saya monitor performance
 - Weekly check-in (5-10 menit)
 - Adjust based on feedback
 
-**END OF TRIAL:**
+**END OF PILOT:**
 - Kita review results bareng
 - Make decision: continue or stop
 
@@ -923,6 +923,6 @@ You've practiced these scenarios → You're prepared for 95% of owner questions!
 - Listen more than talk
 - Show, don't tell
 - Focus on value, not price
-- Always tie back to free trial (remove risk)
+- Always tie back to pilot program (remove risk)
 
 **Good luck! You got this!** 💪

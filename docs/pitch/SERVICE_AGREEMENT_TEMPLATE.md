@@ -203,7 +203,9 @@ CLIENT agrees to:
 
 ---
 
-### OPTION C: HYBRID MODEL
+### ⭐ OPTION C: HYBRID MODEL (DIREKOMENDASIKAN) ⭐
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **4.1 Setup Fee:**
 - Amount: Rp [500.000] (discounted one-time)
@@ -217,6 +219,28 @@ CLIENT agrees to:
 **4.3 Payment Schedule:**
 - Base fee: Due 1st of each month
 - Performance bonus: Due 5th of following month
+
+**💡 MENGAPA HYBRID MODEL IDEAL?**
+
+✅ **Keamanan Finansial:**
+- Base fee Rp 200k/bulan = biaya operasional terprediksi
+- Tidak khawatir biaya melonjak tanpa hasil
+
+✅ **Insentif Performa Tinggi:**
+- Developer termotivasi mengoptimalkan konversi
+- Performance bonus = alignment of interests (win-win)
+
+✅ **Resiko Terbagi:**
+- Client tidak bayar penuh jika website sepi
+- Developer dapat reward jika website rame
+- True partnership model
+
+📊 **Contoh Perhitungan:**
+- Bulan sepi (5 unit via web): Rp 200k + (5 × Rp 25k) = Rp 325k
+- Bulan rame (15 unit via web): Rp 200k + (15 × Rp 25k) = Rp 575k
+- Client bayar sebanding dengan hasil!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ---
 

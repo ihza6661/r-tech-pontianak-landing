@@ -48,6 +48,21 @@ export const queryKeys = {
   },
 };
 
+export interface ProductSpecifications {
+  processor?: string
+  gpu?: string
+  ram?: string
+  storage?: string
+  display?: string
+  keyboard?: string
+  battery?: string
+  warranty?: string
+  condition?: string
+  extras?: string
+  original_price?: string
+  features?: string
+}
+
 export interface Product {
   id: number
   name: string
@@ -57,7 +72,7 @@ export interface Product {
   image_url: string
   image_thumbnail_url?: string
   stock: number
-  specifications?: Record<string, string>
+  specifications?: ProductSpecifications
   category_id: number
   created_at: string
   updated_at: string

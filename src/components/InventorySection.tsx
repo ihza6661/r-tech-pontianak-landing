@@ -1,4 +1,4 @@
-import { Cpu, HardDrive, MemoryStick, Monitor, MessageCircle } from "lucide-react";
+import { Cpu, HardDrive, MemoryStick, Monitor, MessageCircle, Sparkles, Shield, Gift, BadgePercent } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { COMPANY_INFO } from "@/lib/constants";
@@ -7,6 +7,8 @@ import { formatPriceWithCurrency } from "@/lib/utils";
 import { generateProductSchema, injectSchemaMarkup } from "@/lib/schema";
 import { useProducts } from "@/hooks/useProducts";
 import placeholderImg from "@/assets/placeholder.svg";
+import { translateCondition, getConditionBadgeColor } from "@/lib/translations";
+import { Link } from "react-router-dom";
 
 const InventorySection = () => {
   // Fetch products using React Query hook
@@ -57,118 +59,183 @@ const InventorySection = () => {
              <div className="col-span-full text-center py-12">
                <p className="text-muted-foreground">No products available at the moment.</p>
              </div>
-           ) : (
-             products.map((product) => (
-              <div
-                key={product.id}
-                className={`group glass-card rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 ${
-                  product.stock === 0 ? 'opacity-75' : ''
-                }`}
-              >
-                {/* Image */}
-                <div className="relative aspect-square bg-secondary/50 overflow-hidden">
-                  {product.image_url ? (
-                    <img
-                      src={product.image_url}
-                      alt={product.name}
-                      width="500"
-                      height="500"
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        target.onerror = null; // Prevent infinite loop
-                        target.src = `https://via.placeholder.com/500x500/e5e7eb/6b7280?text=${encodeURIComponent(product.name.substring(0, 20))}`;
-                      }}
-                      className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
-                        product.stock === 0 ? 'grayscale' : ''
-                      }`}
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-secondary text-muted-foreground">
-                      No Image
-                    </div>
-                  )}
-                  {/* Sold Out Overlay */}
-                  {product.stock === 0 && (
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center">
-                      <span className="bg-red-500 text-white text-base sm:text-lg font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-lg rotate-[-12deg] shadow-lg">
-                        TERJUAL
-                      </span>
-                    </div>
-                  )}
-                  {/* Badge */}
-                  {product.stock > 0 && (
-                    <span className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-primary/90 text-primary-foreground text-[11px] sm:text-xs font-semibold px-2 sm:px-3 py-1 rounded-full">
-                      {product.stock} Stok
-                    </span>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="p-4 sm:p-5">
-                  <h3 className="font-display text-base sm:text-lg font-bold text-foreground mb-2">
-                    {product.name}
-                  </h3>
-
-                  {/* Specs */}
-                  <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
-                    {product.specifications && (
-                      <>
-                        {product.specifications.processor && (
-                          <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                            <Cpu className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary/70" />
-                            <span>{product.specifications.processor}</span>
-                          </div>
-                        )}
-                        {product.specifications.storage && (
-                          <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                            <HardDrive className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary/70" />
-                            <span>{product.specifications.storage}</span>
-                          </div>
-                        )}
-                        {product.specifications.ram && (
-                          <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                            <MemoryStick className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary/70" />
-                            <span>RAM {product.specifications.ram}</span>
-                          </div>
-                        )}
-                        {product.specifications.display && (
-                          <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                            <Monitor className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary/70" />
-                            <span>{product.specifications.display}</span>
-                          </div>
-                        )}
-                      </>
+             ) : (
+              products.map((product) => (
+               <div
+                 key={product.id}
+                 className={`group glass-card rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 ${
+                   product.stock === 0 ? 'opacity-75' : ''
+                 }`}
+               >
+                 {/* Clickable Link to Product Detail */}
+                 <Link to={`/products/${product.id}`} className="block">
+                  {/* Image */}
+                  <div className="relative aspect-square bg-secondary/50 overflow-hidden">
+                    {product.image_url ? (
+                      <img
+                        src={product.image_url}
+                        alt={product.name}
+                        width="500"
+                        height="500"
+                        loading="lazy"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          target.onerror = null; // Prevent infinite loop
+                          target.src = `https://via.placeholder.com/500x500/e5e7eb/6b7280?text=${encodeURIComponent(product.name.substring(0, 20))}`;
+                        }}
+                        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
+                          product.stock === 0 ? 'grayscale' : ''
+                        }`}
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-secondary text-muted-foreground">
+                        No Image
+                      </div>
                     )}
+                    {/* Sold Out Overlay */}
+                    {product.stock === 0 && (
+                      <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center">
+                        <span className="bg-red-500 text-white text-base sm:text-lg font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-lg rotate-[-12deg] shadow-lg">
+                          TERJUAL
+                        </span>
+                      </div>
+                    )}
+                    {/* Stock Badge */}
+                    {product.stock > 0 && (
+                      <span className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-primary/90 text-primary-foreground text-[11px] sm:text-xs font-semibold px-2 sm:px-3 py-1 rounded-full">
+                        {product.stock} Stok
+                      </span>
+                    )}
+                    {/* Condition Badge - Indonesian Translation */}
+                    {product.specifications?.condition && product.stock > 0 && (
+                      <span className={`absolute top-2 sm:top-3 right-2 sm:right-3 text-[11px] sm:text-xs font-semibold px-2 sm:px-3 py-1 rounded-full ${getConditionBadgeColor(product.specifications.condition)}`}>
+                        {translateCondition(product.specifications.condition)}
+                      </span>
+                    )}
+                    {/* Discount Badge */}
+                    {product.specifications?.original_price && product.stock > 0 && (() => {
+                      const originalPrice = parseFloat(product.specifications.original_price);
+                      const currentPrice = typeof product.price === 'number' ? product.price : parseFloat(String(product.price));
+                      const discount = Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
+                      return discount > 0 ? (
+                        <span className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 bg-red-500/90 text-white text-[11px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-full flex items-center gap-1">
+                          <BadgePercent className="h-3 w-3" />
+                          {discount}% OFF
+                        </span>
+                      ) : null;
+                    })()}
                   </div>
+                 </Link>
 
-                  {/* Price & CTA */}
-                  <div className="flex items-center justify-between gap-2">
-                    <span className={`font-display text-base sm:text-lg font-bold ${
-                      product.stock > 0 ? 'text-primary' : 'text-muted-foreground'
-                    }`}>
-                      {formatPriceWithCurrency(product.price)}
-                    </span>
-                    <Button 
-                      variant={product.stock > 0 ? "whatsapp" : "outline"} 
-                      size="sm" 
-                      asChild
-                    >
-                      <a
-                        href={
-                          product.stock > 0 
-                            ? generateWhatsAppLink("product", product.name)
-                            : generateWhatsAppLink("sold_out", product.name)
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                        {product.stock > 0 ? "Tanya" : "Cari Serupa"}
-                      </a>
-                    </Button>
-                  </div>
-                </div>
+                 {/* Content */}
+                 <div className="p-4 sm:p-5">
+                   {/* Product Name - Clickable */}
+                   <Link to={`/products/${product.id}`}>
+                     <h3 className="font-display text-base sm:text-lg font-bold text-foreground mb-2 hover:text-primary transition-colors cursor-pointer">
+                       {product.name}
+                     </h3>
+                   </Link>
+
+                   {/* Specs */}
+                   {product.specifications && Object.keys(product.specifications).length > 0 ? (
+                     <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+                       {product.specifications.processor && (
+                         <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+                           <Cpu className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary/70 flex-shrink-0" />
+                           <span className="truncate">{product.specifications.processor}</span>
+                         </div>
+                       )}
+                       {product.specifications.gpu && (
+                         <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+                           <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-purple-500/70 flex-shrink-0" />
+                           <span className="truncate">{product.specifications.gpu}</span>
+                         </div>
+                       )}
+                       {product.specifications.ram && (
+                         <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+                           <MemoryStick className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary/70 flex-shrink-0" />
+                           <span>RAM {product.specifications.ram}</span>
+                         </div>
+                       )}
+                       {product.specifications.storage && (
+                         <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+                           <HardDrive className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary/70 flex-shrink-0" />
+                           <span>{product.specifications.storage}</span>
+                         </div>
+                       )}
+                       {product.specifications.display && (
+                         <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+                           <Monitor className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary/70 flex-shrink-0" />
+                           <span className="truncate">{product.specifications.display}</span>
+                         </div>
+                       )}
+                       {product.specifications.warranty && (
+                         <div className="flex items-center gap-2 text-xs sm:text-sm text-green-600 dark:text-green-500">
+                           <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
+                           <span className="truncate font-medium">{product.specifications.warranty}</span>
+                         </div>
+                       )}
+                       {product.specifications.extras && (
+                         <div className="flex items-start gap-2 text-xs sm:text-sm text-orange-600 dark:text-orange-500">
+                           <Gift className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0 mt-0.5" />
+                           <span className="line-clamp-2 font-medium">{product.specifications.extras}</span>
+                         </div>
+                       )}
+                     </div>
+                   ) : (
+                     <div className="mb-3 sm:mb-4">
+                       <p className="text-xs sm:text-sm text-muted-foreground italic">
+                         Hubungi kami untuk detail spesifikasi
+                       </p>
+                     </div>
+                   )}
+
+                   {/* Price & CTA */}
+                   <div className="space-y-2">
+                     {/* Original Price (if exists) */}
+                     {product.specifications?.original_price && (() => {
+                       const originalPrice = parseFloat(product.specifications.original_price);
+                       return (
+                         <div className="flex items-center gap-2">
+                           <span className="text-xs sm:text-sm text-muted-foreground line-through">
+                             {formatPriceWithCurrency(originalPrice)}
+                           </span>
+                           <span className="text-xs sm:text-sm text-green-600 dark:text-green-500 font-semibold">
+                             Hemat {formatPriceWithCurrency(originalPrice - (typeof product.price === 'number' ? product.price : parseFloat(String(product.price))))}
+                           </span>
+                         </div>
+                       );
+                     })()}
+                     
+                      {/* Current Price & CTA Button */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className={`font-display text-lg sm:text-xl font-bold ${
+                          product.stock > 0 ? 'text-primary' : 'text-muted-foreground'
+                        }`}>
+                          {formatPriceWithCurrency(product.price)}
+                        </span>
+                        <Button 
+                          variant={product.stock > 0 ? "whatsapp" : "outline"} 
+                          size="sm" 
+                          asChild
+                        >
+                          <a
+                            href={
+                              product.stock > 0 
+                                ? generateWhatsAppLink("product", product.name)
+                                : generateWhatsAppLink("sold_out", product.name)
+                            }
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                            {product.stock > 0 ? "Tanya" : "Cari Serupa"}
+                          </a>
+                        </Button>
+                     </div>
+                   </div>
+                 </div>
               </div>
             ))
            )}
